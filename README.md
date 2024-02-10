@@ -1,12 +1,8 @@
 # The Middleware Pattern
 
----
-
 In the world of web development, there's a crucial concept called the Middleware Pattern. It's like the conductor in an orchestra, directing each musician to play their part at the right time.
 
 ## Overview
-
----
 
 ### **What is Middleware?**
 
@@ -29,8 +25,6 @@ The Middleware Pattern helps keep our code organized and modular. Instead of hav
 
 ## Important Points
 
----
-
 Before we dive into the nitty-gritty of the code, let's quickly brush up on some important concepts that it relies on:
 
 ### 1. **`<functional>`**: Powering Up Your Functions
@@ -49,8 +43,6 @@ Sometimes, the best way to solve a problem is by diving deeper into it. That's w
 With these concepts under our belt, we're armed and ready to tackle the code.
 
 ## Exploring The Code
-
----
 
 The main idea is that a pair of incoming message and outgoing message objects will recurse through a stack of function calls stored in an `std::vector` within a central object `Application` which orchestrate the pattern.
 
