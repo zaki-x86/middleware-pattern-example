@@ -44,8 +44,8 @@ void Application::handle(InMessage& in, OutMessage& out)
         next(in, out, 0);
     }
     catch(const std::exception& e) {
-        std::cout << "application handler invokes final handler\n";
         // your built-in error handler should be invoked here!
+        std::cout << "application handler invokes final handler\n";
         std::cerr << e.what() << '\n';
     }
 }
@@ -82,13 +82,11 @@ void Application::next(InMessage& in, OutMessage& out, std::exception_ptr err)
             next(in, out, err);
         } else if (layer->path == "*"){
             std::cout << "Internal log: app-level middleware is called!\n";
-
             layer->handle_req(in, out, [&in, &out, this](std::exception_ptr err){
                 next(in, out, err);
             });
         } else if (layer->path == in.path){
-            std::cout << "Internal log: address-level middleware is called!\n";\
-
+            std::cout << "Internal log: route-level middleware is called!\n";\
             layer->handle_req(in, out, [&in, &out, this](std::exception_ptr err){
                 next(in, out, err);
             });
