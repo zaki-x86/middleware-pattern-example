@@ -1,16 +1,16 @@
 #ifndef __APPLICATION_H__
 #define __APPLICATION_H__
 
-#include <cstdio>
+#include <iostream>
 #include <vector>
 
 #include "definitions.h"
-#include "Error.h"
 #include "messages.h"
 #include "mlayer.h"
 
 struct Application {
     Application();
+    ~Application();
 
     void mount(Handler handler);
     void mount(ErrorHandler err_handler);
@@ -19,10 +19,11 @@ struct Application {
     void handle(InMessage& in, OutMessage& out);
 
 private:
-    void next(InMessage& in, OutMessage& out, Error& err);
+    void next(InMessage& in, OutMessage& out, std::exception_ptr err);
 
 private:
-    std::vector<MLayer *> m_Stack;
+    std::vector<MLayer*> m_Stack;
+    int index;
 };
 
 #endif // __APPLICATION_H__

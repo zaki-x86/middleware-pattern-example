@@ -16,9 +16,10 @@ struct OutMessage {
     int status;
     std::map<std::string, std::string> headers;
     std::string body;
+    bool response_sent = false;
 
     void send() {
-        APP.response_sent = true;
+        response_sent = true;
     }
 
 private:

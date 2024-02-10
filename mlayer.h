@@ -8,11 +8,9 @@
 
 struct MLayer
 {
-    MLayer(std::string path, Handler handle_req);
-    MLayer(std::string path, ErrorHandler handle_err);
-    std::string path;
-    Handler handle_req;
-    ErrorHandler handle_err;
+    std::string path = "*";
+    Handler handle_req = nullptr;
+    ErrorHandler handle_err = nullptr;
 };
 
 
